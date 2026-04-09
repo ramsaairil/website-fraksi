@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aspirations",
+  "info": {
+    "singularName": "aspiration",
+    "pluralName": "aspirations",
+    "displayName": "Aspiration",
+    "description": "User submitted aspirations"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "jabatan": {
+      "type": "string"
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "dapil": {
+      "type": "string"
+    },
+    "komisi": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "richtext"
+    }
+  }
+}
