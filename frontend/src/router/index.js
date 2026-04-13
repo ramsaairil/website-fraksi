@@ -24,6 +24,9 @@ const router = createRouter({
     { path: '/event', name: 'event', component: () => import('../views/EventView.vue') },
     { path: '/pandangan-fraksi', name: 'pandangan-fraksi', component: () => import('../views/PandanganFraksiView.vue') },
     { path: '/kontak', name: 'kontak', component: () => import('../views/KontakView.vue') },
+    { path: '/internshipks', name: 'internshipks', component: () => import('../views/InternshipksView.vue') },
+    { path: '/peraturan-daerah', name: 'peraturan-daerah', component: () => import('../views/PeraturanDaerahView.vue') },
+    { path: '/pansus', name: 'pansus', component: () => import('../views/PansusView.vue') },
   ],
 })
 
