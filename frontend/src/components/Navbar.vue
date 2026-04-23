@@ -81,9 +81,9 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
           <li><router-link to="/event" @click="closeAll">Event</router-link></li>
           <li><router-link to="/pandangan-fraksi" @click="closeAll">Pandangan Fraksi</router-link></li>
-          <li><router-link to="/internshipks" @click="closeAll">InternshiPKS</router-link></li>
           <li><router-link to="/peraturan-daerah" @click="closeAll">Peraturan Daerah</router-link></li>
           <li><router-link to="/pansus" @click="closeAll">Pansus</router-link></li>
+          <li><router-link to="/internshipks" @click="closeAll">InternshiPKS</router-link></li>
         </ul>
       </div>
     </nav>
