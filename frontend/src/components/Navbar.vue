@@ -23,18 +23,22 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
 <template>
   <header class="site-header">
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <div class="container top-bar-content">
-        <router-link to="/" class="top-home"><i class="fas fa-home"></i> Fraksi PKS DPRD Kota Bandung</router-link>
-        <div class="top-social">
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+      <!-- Brand Bar -->
+    <div class="brand-bar">
+      <div class="container brand-content">
+        <router-link to="/" class="brand-logos" @click="closeAll">
+          <img src="/logo-dprd.jpg" alt="DPRD Kota Bandung" class="logo-dprd" />
+          <img src="https://pks.id/img/logo-pks.png" alt="PKS" class="logo-pks" />
+        </router-link>
+        <div class="brand-text">
+          <span class="brand-title">Website Resmi</span>
+          <span class="brand-name">Fraksi Partai Keadilan Sejahtera DPRD Kota Bandung</span>
+          <span class="brand-tagline">Berkhidmat untuk Rakyat, Membangun Kota Bandung Bermartabat</span>
         </div>
       </div>
     </div>
+  </header>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
@@ -83,57 +87,62 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
         </ul>
       </div>
     </nav>
-
-    <!-- Brand Bar -->
-    <div class="brand-bar">
-      <div class="container brand-content">
-        <div class="brand-logos">
-          <img src="/logo-dprd.jpg" alt="DPRD Kota Bandung" class="logo-dprd" />
-          <img src="https://pks.id/img/logo-pks.png" alt="PKS" class="logo-pks" />
-        </div>
-        <div class="brand-text">
-          <span class="brand-title">Website Resmi</span>
-          <span class="brand-name">Fraksi Partai Keadilan Sejahtera DPRD Kota Bandung</span>
-          <span class="brand-tagline">Berkhidmat untuk Rakyat, Membangun Kota Bandung Bermartabat</span>
-        </div>
-      </div>
-    </div>
-  </header>
 </template>
 
 <style scoped>
-/* Top Bar */
-.top-bar {
+
+/* Brand Bar */
+.brand-bar {
   background: white;
-  border-bottom: 1px solid #eee;
-  padding: 8px 0;
+  padding: 20px 0;
+  border-bottom: 3px solid var(--pks-orange);
+  position: relative;
+  overflow: hidden;
 }
-.top-bar-content {
+.brand-bar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,0.02)" stroke-width="1"/></svg>') repeat;
+  background-size: 60px;
+  pointer-events: none;
+}
+.brand-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
 }
-.top-home {
-  font-size: 0.88rem;
-  font-weight: 600;
+.logo-pks { height: 70px; }
+.logo-dprd { height: 70px; }
+.brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-text { display: flex; flex-direction: column; }
+.brand-title {
+  font-size: 0.85rem;
+  color: var(--pks-text-muted);
+  font-weight: 400;
+}
+.brand-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
   color: var(--pks-navy);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  line-height: 1.3;
 }
-.top-home i { color: var(--pks-orange); }
-.top-social {
-  display: flex; gap: 14px;
+.brand-tagline {
+  font-size: 0.85rem;
+  color: var(--pks-orange);
+  font-weight: 500;
+  font-style: italic;
 }
-.top-social a {
-  color: var(--pks-text-muted); font-size: 0.9rem;
-}
-.top-social a:hover { color: var(--pks-orange); }
 
 /* Main Navigation */
 .main-nav {
   background: white;
-  border-bottom: 3px solid var(--pks-orange);
   position: relative;
   z-index: 1000;
 }
@@ -201,55 +210,6 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   padding-left: 26px;
 }
 .dropdown li:last-child a { border-bottom: none; }
-
-/* Brand Bar */
-.brand-bar {
-  background: white;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-  position: relative;
-  overflow: hidden;
-}
-.brand-bar::before {
-  content: '';
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,0.02)" stroke-width="1"/></svg>') repeat;
-  background-size: 60px;
-  pointer-events: none;
-}
-.brand-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 1;
-}
-.logo-pks { height: 70px; }
-.logo-dprd { height: 70px; }
-.brand-logos {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.brand-text { display: flex; flex-direction: column; }
-.brand-title {
-  font-size: 0.85rem;
-  color: var(--pks-text-muted);
-  font-weight: 400;
-}
-.brand-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--pks-navy);
-  line-height: 1.3;
-}
-.brand-tagline {
-  font-size: 0.85rem;
-  color: var(--pks-orange);
-  font-weight: 500;
-  font-style: italic;
-}
 
 /* Mobile */
 .mobile-toggle {
